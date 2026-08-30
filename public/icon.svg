@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 36 36">
+
+  <style>
+    .bg { fill: #0a0a0f; }
+    .icon { fill: none; stroke: #FF2F00; }
+  </style>
+  
+  <rect class="bg" x="-1" y="-1" width="36" height="36" rx="3"/>
+  <path class="icon" d="M16.9688 2.34375V31.5938M16.9688 16.9688H2.34375M2.34375 2.34375V31.5938H21.0938C35.1562 26.9062 35.1562 7.03125 21.0938 2.34375H2.34375Z"   
+        stroke-width="4.6875" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+</svg>
+
