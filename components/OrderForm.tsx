@@ -89,7 +89,6 @@ const OrderForm = forwardRef<OrderFormRef, OrderFormProps>(
           style={{
             padding: '14px 16px',
             borderRadius: '12px',
-            border: '1px solid #333',
             background: '#1a1a24a7',
             color: '#fff',
             caretColor: '#ffffff',
@@ -108,7 +107,7 @@ const OrderForm = forwardRef<OrderFormRef, OrderFormProps>(
           onChange={(e) => setPhone(e.target.value)}
           required
           style={{
-            padding: '14px 16px', borderRadius: '12px', border: '1px solid #333',
+            padding: '14px 16px', borderRadius: '12px',
             background: '#1a1a24a7', color: '#fff', fontSize: '16px'
           }}
         />

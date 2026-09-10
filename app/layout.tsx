@@ -1,14 +1,17 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import type { Viewport } from 'next'
 
 export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
   themeColor: '#0a0a0f',
-}
+};
+
+// Задаём фоллбэк, чтобы локально не выпадало предупреждение
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://192.168.1.101:3000'),
-
+  metadataBase: new URL(baseUrl), // Всегда передаём объект URL
   title: 'Ремонт квартир под ключ | Качественная отделка с гарантией',
   description: 'Профессиональный ремонт квартир под ключ. Фиксированная смета, официальный договор и гарантия качества',
 
@@ -29,7 +32,6 @@ export const metadata: Metadata = {
     ],
   },
 
-
   openGraph: {
     title: 'Ремонт квартир под ключ с гарантией',
     description: 'Профессиональный ремонт квартир под ключ. Фиксированная смета и договор',
@@ -37,13 +39,13 @@ export const metadata: Metadata = {
     siteName: 'Ремонт квартир',
     images: [
       {
-        url: '/background.jpg',
+        url: '/background.jpg', // Next.js сам подставит baseUrl спереди
         width: 1200,
         height: 630,
         alt: 'Ремонт квартир',
       },
     ],
-    locale: 'uk-UA',
+    locale: 'uk_UA', // Корректный формат для OpenGraph (через подчёркивание)
     type: 'website',
   },
 };
@@ -54,7 +56,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='UA' className='h-full antialiased'>
+    <html lang='uk' className='h-full antialiased'>
       <body className='min-h-full flex flex-col' style={{ margin: 0, padding: 0, background: '#0a0a0f' }}>
         {children}
       </body>

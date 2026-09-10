@@ -4,9 +4,8 @@ export async function POST(request: Request) {
   try {
     const { name, phone, category } = await request.json();
 
-    // 1. ВСТАВЬ СВОИ ДАННЫЕ ВНУТРИ КАВЫЧЕК (БЕЗ ПРОБЕЛОВ)
-    const BOT_TOKEN = '8760278521:AAFOVA30WHMMFhiVnh2O3vFTCf6oVTdXQB8';
-    const CHAT_ID = '7658990988';
+    const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+    const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
     const text = `🔥 *Новая заявка с сайта!*\n\n👤 *Имя:* ${name}\n📞 *Телефон:* ${phone}\n🏷️ *Услуга:* ${category}`;
 

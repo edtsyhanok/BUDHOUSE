@@ -45,5 +45,3 @@ next-env.d.ts
 node_modules/
 .venv/
 *.log
-.DS_Store
-

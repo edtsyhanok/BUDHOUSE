@@ -11,9 +11,9 @@ const translations = {
     btnCall: 'Позвонить',
     btnOrder: 'Написать сообщение',
     features: ['Смета за 24 часа', 'Фиксированная цена', 'Опыт от 10 лет'],
-    formTitle: 'консультация,просчёт сметы',
+    formTitle: 'консультация, просчёт сметы',
     category: 'Ремонт квартир под ключ',
-    brand: 'частный мастер',
+    brand: 'BUDHOUSE',
     placeholders: {
       name: 'ваше имя и вопрос',
       phone: 'номер телефона',
@@ -31,9 +31,9 @@ const translations = {
     btnCall: 'Зателефонувати',
     btnOrder: 'Надіслати повідомлення',
     features: ['Кошторис за 24 години', 'Фіксована ціна', 'Досвід від 10 років'],
-    formTitle: 'отримати пораду,роз`яснення',
+    formTitle: 'отримати пораду, роз`яснення',
     category: 'Ремонт квартир под ключ (UA)',
-    brand: 'приватний майстер',
+    brand: 'BUDHOUSE',
     placeholders: {
       name: 'ваше ім`я та питання',
       phone: 'номер телефона',
@@ -53,7 +53,7 @@ const translations = {
     features: ['Estimate in 24h', 'Fixed price', '10+ years experience'],
     formTitle: 'calculate estimate',
     category: 'Turnkey Apartment Renovation (EN)',
-    brand: 'private master',
+    brand: 'BUDHOUSE',
     placeholders: {
       name: 'your name and question',
       phone: 'number phone',
@@ -101,12 +101,7 @@ export default function HomeLanding() {
 
   return (
     <main style={{
-
       backgroundImage: `
-      linear-gradient(
-      rgba(10, 10, 15, 0.45),
-      rgba(10, 10, 15, 0.45)
-       ),
        url('/background.jpg')`,
       backgroundSize: 'cover',
       backgroundPosition: '50% 50%',
@@ -121,34 +116,30 @@ export default function HomeLanding() {
 
       <header style={{
         position: 'sticky',
-        top: 0,
-        left: 0,
-        right: 0,
         zIndex: 9999,
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '20px 16px',
-        background: 'rgba(10, 10, 15, 0.5)',
+        padding: '20px 35px',
       }}>
-        <div style={{ fontWeight: '700', fontSize: '16px', color: '#aaa' }}>
+        <div style={{ fontWeight: '500', fontSize: '22px', color: '#000' }}>
           {t.brand}
         </div>
 
-        <div style={{ display: 'flex', gap: '4px', background: '#222', padding: '2px', borderRadius: '20px' }}>
+        <div style={{ display: 'flex', gap: '2px', padding: '2px' }}>
           {(['ru', 'ua', 'en'] as LangType[]).map((l) => (
             <button
               key={l}
               type="button"
               onClick={() => setLang(l)}
               style={{
-                padding: '8px 14px',
+                padding: '6px 6px',
                 border: 'none',
                 borderRadius: '16px',
-                background: lang === l ? '#fff' : 'transparent',
-                color: lang === l ? '#000' : '#aaa',
+                background: lang === l ? '#ffffff52' : 'transparent',
+                color: lang === l ? '#000' : '#000',
                 cursor: 'pointer',
-                fontWeight: '700',
+                fontWeight: '500',
                 fontSize: '16px'
               }}
             >
@@ -158,26 +149,26 @@ export default function HomeLanding() {
         </div>
       </header>
 
-      <section style={{ width: '100%', margin: '0 auto', padding: '40px 0px', textAlign: 'center' }}>
+      <section style={{ width: '80%', margin: '0 auto', padding: '40px 0px', textAlign: 'center' }}>
         <h1 style={{ fontSize: '32px', fontWeight: '700', marginBottom: '20px', textTransform: 'uppercase' }}>
           {t.title}
         </h1>
 
-        <p style={{ fontSize: '16px', marginBottom: '40px' }}>
+        <p style={{ fontSize: '24px', marginBottom: '40px' }}>
           {t.subtitle}
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', marginBottom: '40px' }}>
           <a href='tel:+380970786167' style={{
-            padding: '16px', background: '#222', color: '#fff', border: '1px solid #444',
-            borderRadius: '25px', textDecoration: 'none', width: '260px', fontWeight: '700'
+            padding: '16px', background: 'rgba(10, 10, 15, 0.5)', color: '#fff',
+            borderRadius: '25px', textDecoration: 'none', width: '260px', fontWeight: '500'
           }}>
             📞 {t.btnCall}
           </a>
 
           <button onClick={handleScrollToForm} style={{
-            padding: '16px', background: '#005426a6', color: '#fff', border: 'none',
-            borderRadius: '25px', width: '260px', fontWeight: '700', cursor: 'pointer'
+            padding: '16px', background: '#005426a6', color: '#fff',
+            borderRadius: '25px', width: '260px', fontWeight: '500', cursor: 'pointer'
           }}>
             ✉️ {t.btnOrder}
           </button>
@@ -187,7 +178,7 @@ export default function HomeLanding() {
           {t.features.map((feature, i) => (
             <div key={i} style={{
               background: 'rgba(10, 10, 15, 0.5)', padding: '16px', borderRadius: '12px',
-              marginBottom: '10px', border: '1px solid #222'
+              marginBottom: '10px'
             }}>{feature}</div>
           ))}
         </div>
@@ -195,10 +186,9 @@ export default function HomeLanding() {
         
 
         <div id='order-section' style={{
-          background: 'rgba(10, 10, 15, 0.5)', padding: '30px 20px', borderRadius: '20px',
-          border: '1px solid #222', maxWidth: '400px', margin: '0 auto'
+          background: 'rgba(10, 10, 15, 0.5)', padding: '10px 10px', borderRadius: '20px',
         }}>
-          <h3 style={{ fontSize: '20px', marginBottom: '20px' }}>{t.formTitle}</h3>
+          <h2 style={{ fontSize: '24px', marginBottom: '20px' }}>{t.formTitle}</h2>
 
           {/* ВАЖНО: Передаем ref={formRef} */}
           <OrderForm
@@ -221,7 +211,6 @@ export default function HomeLanding() {
             justifyContent: 'space-between',
             alignItems: 'center',
             padding: '20px 0px',
-            background: 'rgba(10, 10, 15, 0.5)',
             color: '#888',
             fontSize: '14px',
           }}
@@ -235,9 +224,9 @@ export default function HomeLanding() {
               rel="noopener noreferrer"
               style={{ opacity: 0.5, transition: 'opacity 0.2s', display: 'flex' }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.5')}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.75')} 
             >
-              <img src="/icons/telegram.svg" alt="Telegram" width="20" height="20" />
+              <img src="/telegram.png" alt="Telegram" width="40" height="40" />
             </a>
 
             <a
@@ -246,9 +235,9 @@ export default function HomeLanding() {
               rel="noopener noreferrer"
               style={{ opacity: 0.5, transition: 'opacity 0.2s', display: 'flex' }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.5')}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.75')}
             >
-              <img src="/icons/whatsapp.svg" alt="WhatsApp" width="20" height="20" />
+              <img src="/whatsapp.png" alt="WhatsApp" width="40" height="40" />
             </a>
 
             <a
@@ -257,9 +246,9 @@ export default function HomeLanding() {
               rel="noopener noreferrer"
               style={{ opacity: 0.5, transition: 'opacity 0.2s', display: 'flex' }}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.5')}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.75')}
             >
-              <img src="/icons/viber.svg" alt="Viber" width="20" height="20" />
+              <img src="/viber.png" alt="Viber" width="40" height="40" />
             </a>
           </div>
 
