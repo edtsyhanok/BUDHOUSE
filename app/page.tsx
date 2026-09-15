@@ -6,7 +6,7 @@ import OrderForm, { OrderFormRef } from '@/components/OrderForm'; // Добав�
 
 const translations = {
   ru: {
-    title: 'ремонт квартир',
+    title: 'ремонт квартир киев',
     subtitle: 'Выполняем все виды отделочных, сантехнических и электромонтажных работ',
     btnCall: 'Позвонить',
     btnOrder: 'Написать сообщение',
@@ -26,7 +26,7 @@ const translations = {
     }
   },
   ua: {
-    title: 'ремонт квартир',
+    title: 'ремонт квартир київ',
     subtitle: 'Виконуємо всі види оздоблювальних, сантехнічних та електромонтажних робіт',
     btnCall: 'Зателефонувати',
     btnOrder: 'Надіслати повідомлення',
@@ -46,7 +46,7 @@ const translations = {
     }
   },
   en: {
-    title: 'apartment renovation',
+    title: 'apartment renovation kyiv',
     subtitle: 'We perform all types of finishing, plumbing, and electrical work',
     btnCall: 'Call',
     btnOrder: 'Send a message',
