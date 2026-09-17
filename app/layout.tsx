@@ -19,7 +19,6 @@ export const metadata: Metadata = {
     icon: [
       {
         url: '/icon.svg?v=2',
-        media: '(prefers-color-scheme: light)',
         type: 'image/svg+xml',
       },
     ],
