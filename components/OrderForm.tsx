@@ -69,11 +69,14 @@ const OrderForm = forwardRef<OrderFormRef, OrderFormProps>(
           setStatus('success');
           setName('');
           setPhone('');
+          setTimeout(() => setStatus('idle'), 3000);
         } else {
           setStatus('error');
+          setTimeout(() => setStatus('idle'), 3000);
         }
-      } catch (err) {
+      } catch {
         setStatus('error');
+        setTimeout(() => setStatus('idle'), 3000);
       }
     };
 

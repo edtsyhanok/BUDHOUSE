@@ -6,8 +6,8 @@ import OrderForm, { OrderFormRef } from '@/components/OrderForm'; // Добав�
 
 const translations = {
   ru: {
-    title: 'ремонт квартир киев',
-    subtitle: 'Выполняем все виды отделочных, сантехнических и электромонтажных работ',
+    title: 'Ремонт квартир в Киеве',
+    subtitle: 'Выполняем все виды отделочных, сантехнических и электромонтажных работ. Расскажем, покажем, посчитаем, померяем, поможем решить, спланировать, определиться, выяснить,поделимся опытом, подскажем, как сэкономить и не потерять качество',
     btnCall: 'Позвонить',
     btnOrder: 'Написать сообщение',
     features: ['Смета за 24 часа', 'Фиксированная цена', 'Опыт от 10 лет'],
@@ -26,13 +26,13 @@ const translations = {
     }
   },
   ua: {
-    title: 'ремонт квартир київ',
-    subtitle: 'Виконуємо всі види оздоблювальних, сантехнічних та електромонтажних робіт',
+    title: 'Ремонт квартир у Київі',
+    subtitle: 'Виконуємо всі види оздоблювальних, сантехнічних та електромонтажних робіт. Розкажемо, покажемо, порахуємо, поміряємо, допоможемо вирішити, спланувати, визначитися, з`ясувати, поділимося досвідом, підкажемо, як заощадити та не втратити якість',
     btnCall: 'Зателефонувати',
     btnOrder: 'Надіслати повідомлення',
     features: ['Кошторис за 24 години', 'Фіксована ціна', 'Досвід від 10 років'],
     formTitle: 'отримати пораду, роз`яснення',
-    category: 'Ремонт квартир под ключ (UA)',
+    category: 'Ремонт квартир під ключ',
     brand: 'BUDHOUSE',
     placeholders: {
       name: 'ваше ім`я та питання',
@@ -46,13 +46,13 @@ const translations = {
     }
   },
   en: {
-    title: 'apartment renovation kyiv',
-    subtitle: 'We perform all types of finishing, plumbing, and electrical work',
+    title: 'apartment renovation in Kyiv',
+    subtitle: 'We perform all types of finishing, plumbing, and electrical work. We will tell you, show you, calculate, measure, help you decide, plan, figure out, share our experience, and advise you on how to save money without losing quality.',
     btnCall: 'Call',
     btnOrder: 'Send a message',
     features: ['Estimate in 24h', 'Fixed price', '10+ years experience'],
     formTitle: 'calculate estimate',
-    category: 'Turnkey Apartment Renovation (EN)',
+    category: 'Turnkey Apartment Renovation',
     brand: 'BUDHOUSE',
     placeholders: {
       name: 'your name and question',
@@ -70,7 +70,7 @@ const translations = {
 type LangType = 'ru' | 'ua' | 'en';
 
 export default function HomeLanding() {
-  const [lang, setLang] = useState<LangType>('ua');
+  const [lang, setLang] = useState<LangType>('ru');
 
   // Создаем ссылку для доступа к методам формы
   const formRef = useRef<OrderFormRef>(null);
@@ -211,7 +211,7 @@ export default function HomeLanding() {
             justifyContent: 'space-between',
             alignItems: 'center',
             padding: '20px 0px',
-            color: '#888',
+            color: '#000000',
             fontSize: '14px',
           }}
         >
@@ -254,12 +254,6 @@ export default function HomeLanding() {
 
           {/* Юридические ссылки */}
           <div style={{  gap: '16px', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
-            <a href="/privacy" style={{ color: '#888', textDecoration: 'none' }}>
-              Политика конфиденциальности
-            </a>
-            <a href="/terms">
-              Условия
-            </a>
             © {new Date().getFullYear()}
           </div>
         </footer>

@@ -8,12 +8,24 @@ export const viewport: Viewport = {
 };
 
 // Задаём фоллбэк, чтобы локально не выпадало предупреждение
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://budhouse.netlify.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl), // Всегда передаём объект URL
-  title: 'Ремонт квартир под ключ | Качественная отделка с гарантией',
-  description: 'Профессиональный ремонт квартир под ключ. Фиксированная смета, официальный договор и гарантия качества',
+  title: 'Ремонт квартир в Киеве',
+  description: 'Фиксированная смета, официальный договор и гарантия качества',
+
+  // Явно разрешаем индексацию — полезно иметь прописанным,
+  // а не полагаться на дефолт
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  // Канонический URL страницы — важно, раз уже задан metadataBase
+  alternates: {
+    canonical: '/',
+  },
 
   icons: {
     icon: [
@@ -23,7 +35,7 @@ export const metadata: Metadata = {
       },
       {
         url: '/icon.ico',
-        sizes: '32x32',
+        sizes: '48x48',
         type: 'image/x-icon',
       },
     ],
@@ -37,10 +49,10 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: 'Ремонт квартир под ключ с гарантией',
-    description: 'Профессиональный ремонт квартир под ключ. Фиксированная смета и договор',
+    title: 'Ремонт квартир в Киеве',
+    description: 'Фиксированная смета, официальный договор и гарантия качества',
     url: '/',
-    siteName: 'Ремонт квартир',
+    siteName: 'BUDHOUSE',
     images: [
       {
         url: '/background.jpg', // Next.js сам подставит baseUrl спереди
@@ -49,18 +61,34 @@ export const metadata: Metadata = {
         alt: 'Ремонт квартир',
       },
     ],
-    locale: 'uk_UA', // Корректный формат для OpenGraph (через подчёркивание)
+    locale: 'ru_UA', // Корректный формат для OpenGraph (через подчёркивание)
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ремонт квартир в Киеве',
+    description: 'Фиксированная смета, официальный договор и гарантия качества',
+    images: ['/background.jpg'], // Next.js сам подставит baseUrl спереди
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang='uk' className='h-full antialiased'>
+    <html lang='ru' className='h-full antialiased'>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'BUDHOUSE', // или BUDHOUSE, как хотите видеть в поиске
+              url: baseUrl,
+            }),
+          }}
+        />
+      </head>
       <body className='min-h-full flex flex-col' style={{ margin: 0, padding: 0, background: '#0a0a0f' }}>
         {children}
       </body>
