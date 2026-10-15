@@ -7,11 +7,11 @@ import OrderForm, { OrderFormRef } from '@/components/OrderForm'; // Добав�
 const translations = {
   ru: {
     title: 'Ремонт квартир в Киеве',
-    subtitle: 'Выполняем все виды отделочных, сантехнических и электромонтажных работ. Расскажем, покажем, посчитаем, померяем, поможем решить, спланировать, определиться, выяснить,поделимся опытом, подскажем, как сэкономить и не потерять качество',
+    subtitle: 'Выполняем все виды отделочных, сантехнических и электромонтажных работ. Поможем решить, спланировать, выяснить, поделимся опытом, подскажем, как сэкономить и не потерять качество',
     btnCall: 'Позвонить',
     btnOrder: 'Написать сообщение',
-    features: ['Смета за 24 часа', 'Фиксированная цена', 'Опыт от 10 лет'],
-    formTitle: 'консультация, просчёт сметы',
+    // features: ['Смета за 24 часа', 'Фиксированная цена', 'Опыт от 10 лет'],
+    formTitle: 'консультация, просчёт сметы, цены, сроки, материалы, доставка... по любым вопросам',
     category: 'Ремонт квартир под ключ',
     brand: 'BUDHOUSE',
     placeholders: {
@@ -26,17 +26,17 @@ const translations = {
     }
   },
   ua: {
-    title: 'Ремонт квартир у Київі',
-    subtitle: 'Виконуємо всі види оздоблювальних, сантехнічних та електромонтажних робіт. Розкажемо, покажемо, порахуємо, поміряємо, допоможемо вирішити, спланувати, визначитися, з`ясувати, поділимося досвідом, підкажемо, як заощадити та не втратити якість',
+    title: 'Ремонт квартир у Києві',
+    subtitle: 'Виконуємо всі види оздоблювальних, сантехнічних та електромонтажних робіт. Допоможемо вирішити, спланувати, з’ясувати, поділимося досвідом, підкажемо, як заощадити та не втратити якість',
     btnCall: 'Зателефонувати',
     btnOrder: 'Надіслати повідомлення',
-    features: ['Кошторис за 24 години', 'Фіксована ціна', 'Досвід від 10 років'],
-    formTitle: 'отримати пораду, роз`яснення',
+    // features: ['Кошторис за 24 години', 'Фіксована ціна', 'Досвід від 10 років'],
+    formTitle: 'отримати пораду, роз’яснення, розрахунок кошторису, ціни, терміни, матеріали, доставка... з будь-яких питань',
     category: 'Ремонт квартир під ключ',
     brand: 'BUDHOUSE',
     placeholders: {
-      name: 'ваше ім`я та питання',
-      phone: 'номер телефона',
+      name: 'ваше ім’я та питання',
+      phone: 'номер телефону',
     },
     buttonTexts: {
       idle: 'Надіслати заявку',
@@ -47,16 +47,16 @@ const translations = {
   },
   en: {
     title: 'apartment renovation in Kyiv',
-    subtitle: 'We perform all types of finishing, plumbing, and electrical work. We will tell you, show you, calculate, measure, help you decide, plan, figure out, share our experience, and advise you on how to save money without losing quality.',
+    subtitle: 'We perform all types of finishing, plumbing, and electrical work. Help you decide, plan, figure out, share our experience, and advise you on how to save money without losing quality.',
     btnCall: 'Call',
     btnOrder: 'Send a message',
-    features: ['Estimate in 24h', 'Fixed price', '10+ years experience'],
-    formTitle: 'calculate estimate',
+    // features: ['Estimate in 24h', 'Fixed price', '10+ years experience'],
+    formTitle: 'calculate estimate, prices, deadlines, materials, delivery... for any questions',
     category: 'Turnkey Apartment Renovation',
     brand: 'BUDHOUSE',
     placeholders: {
       name: 'your name and question',
-      phone: 'number phone',
+      phone: 'phone number',
     },
     buttonTexts: {
       idle: 'Send request',
@@ -101,26 +101,31 @@ export default function HomeLanding() {
 
   return (
     <main style={{
-      backgroundImage: `
-       url('/background.jpg')`,
-      backgroundSize: 'cover',
-      backgroundPosition: '50% 50%',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed',
-
+      isolation: 'isolate',
       color: '#fff',
-      paddingBottom: '80px',
-      overflowX: 'hidden',
-      WebkitTapHighlightColor: 'transparent'
+      paddingBottom: '160px',
+      overflowX: 'clip'
      }}>
 
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100lvh',
+        zIndex: -1,
+        backgroundImage: "url('/background.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: '50% 50%',
+        backgroundRepeat: 'no-repeat',
+        transform: 'translateZ(0)',
+      }} />
+
       <header style={{
-        position: 'sticky',
-        zIndex: 9999,
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '20px 35px',
+        padding: '10px 35px',
       }}>
         <div style={{ fontWeight: '500', fontSize: '22px', color: '#000' }}>
           {t.brand}
@@ -138,7 +143,6 @@ export default function HomeLanding() {
                 borderRadius: '16px',
                 background: lang === l ? '#ffffff52' : 'transparent',
                 color: lang === l ? '#000' : '#000',
-                cursor: 'pointer',
                 fontWeight: '500',
                 fontSize: '16px'
               }}
@@ -154,39 +158,38 @@ export default function HomeLanding() {
           {t.title}
         </h1>
 
-        <p style={{ fontSize: '24px', marginBottom: '40px' }}>
+        <p style={{ fontSize: '24px', marginBottom: '20px' }}>
           {t.subtitle}
         </p>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', marginBottom: '40px' }}>
           <a href='tel:+380970786167' style={{
-            padding: '16px', background: 'rgba(10, 10, 15, 0.5)', color: '#fff',
+            padding: '16px', background: 'rgba(10, 10, 15, 0.3)', color: '#fff',
             borderRadius: '25px', textDecoration: 'none', width: '260px', fontWeight: '500'
           }}>
             📞 {t.btnCall}
           </a>
 
           <button onClick={handleScrollToForm} style={{
-            padding: '16px', background: '#005426a6', color: '#fff',
-            borderRadius: '25px', width: '260px', fontWeight: '500', cursor: 'pointer'
+            padding: '16px', background: '#0054268f', color: '#fff',
+            borderRadius: '25px', width: '260px', fontWeight: '500'
           }}>
             ✉️ {t.btnOrder}
           </button>
         </div>
 
-        <div style={{ maxWidth: '500px', margin: '0 auto 40px auto', textAlign: 'left' }}>
+        {/* <div style={{ maxWidth: '500px', margin: '0 auto 40px auto', textAlign: 'left' }}>
           {t.features.map((feature, i) => (
-            <div key={i} style={{
-              background: 'rgba(10, 10, 15, 0.5)', padding: '16px', borderRadius: '12px',
-              marginBottom: '10px'
-            }}>{feature}</div>
+            <div key={i} className="mb-2.5 rounded-xl bg-[rgba(10,10,15,0.3)] p-4">
+              {feature}
+            </div>
           ))}
-        </div>
+        </div> */}
 
         
 
         <div id='order-section' style={{
-          background: 'rgba(10, 10, 15, 0.5)', padding: '10px 10px', borderRadius: '20px',
+          background: 'rgba(10, 10, 15, 0.3)', padding: '10px 10px', borderRadius: '20px',
         }}>
           <h2 style={{ fontSize: '24px', marginBottom: '20px' }}>{t.formTitle}</h2>
 
@@ -201,10 +204,7 @@ export default function HomeLanding() {
 
         <footer
           style={{
-            position: 'sticky',
-            bottom: 0,
             marginTop: '40px',
-            zIndex: 9999,
             display: 'flex',
             flexDirection: 'column',
             gap: '12px',      // <--- Отступ между блоками, если они перенеслись
@@ -212,7 +212,7 @@ export default function HomeLanding() {
             alignItems: 'center',
             padding: '20px 0px',
             color: '#000000',
-            fontSize: '14px',
+            fontSize: '16px',
           }}
         >
 
@@ -222,33 +222,27 @@ export default function HomeLanding() {
               href="https://t.me/edtsyhanok"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ opacity: 0.5, transition: 'opacity 0.2s', display: 'flex' }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.75')} 
+              className="flex opacity-65 transition-opacity duration-200 hover:opacity-100"
             >
-              <img src="/telegram.png" alt="Telegram" width="40" height="40" />
+              <img src="/telegram.png" alt="Telegram" width="40" height="40" loading="lazy" />
             </a>
 
             <a
               href="https://wa.me/380970786167"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ opacity: 0.5, transition: 'opacity 0.2s', display: 'flex' }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.75')}
+              className="flex opacity-65 transition-opacity duration-200 hover:opacity-100"
             >
-              <img src="/whatsapp.png" alt="WhatsApp" width="40" height="40" />
+              <img src="/whatsapp.png" alt="WhatsApp" width="40" height="40" loading="lazy" />
             </a>
 
             <a
               href="viber://chat?number=%2B380970786167"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ opacity: 0.5, transition: 'opacity 0.2s', display: 'flex' }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.75')}
+              className="flex opacity-65 transition-opacity duration-200 hover:opacity-100"
             >
-              <img src="/viber.png" alt="Viber" width="40" height="40" />
+              <img src="/viber.png" alt="Viber" width="40" height="40" loading="lazy" />
             </a>
           </div>
 

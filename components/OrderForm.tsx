@@ -92,14 +92,9 @@ const OrderForm = forwardRef<OrderFormRef, OrderFormProps>(
           style={{
             padding: '14px 16px',
             borderRadius: '12px',
-            background: '#1a1a24a7',
-            color: '#fff',
-            caretColor: '#ffffff',
+            background: '#1a1a244d',
             fontSize: '16px',
-            outline: 'none',
-            WebkitAppearance: 'none',
-            WebkitUserSelect: 'text',
-            userSelect: 'text',
+            outline: 'none'
           }}
         />
 
@@ -110,8 +105,11 @@ const OrderForm = forwardRef<OrderFormRef, OrderFormProps>(
           onChange={(e) => setPhone(e.target.value)}
           required
           style={{
-            padding: '14px 16px', borderRadius: '12px',
-            background: '#1a1a24a7', color: '#fff', fontSize: '16px'
+            padding: '14px 16px',
+             borderRadius: '12px',
+            background: '#1a1a244d',  
+            fontSize: '16px',
+            outline: 'none'
           }}
         />
 
@@ -119,8 +117,8 @@ const OrderForm = forwardRef<OrderFormRef, OrderFormProps>(
           type='submit'
           disabled={status === 'loading'}
           style={{
-            padding: '16px', background: status === 'success' ? '#34c759' : '#005426a6',
-            color: '#fff', border: 'none', borderRadius: '12px', fontWeight: '600', cursor: 'pointer'
+            padding: '16px', background: status === 'success' ? '#34c759b2' : '#00542666',
+            color: '#fff', border: 'none', borderRadius: '12px', fontWeight: '600'
           }}
         >
           {status === 'loading' && buttonTexts.loading}

@@ -72,24 +72,23 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'BUDHOUSE',
+    url: baseUrl,
+  };
+
   return (
-    <html lang='ru' className='h-full antialiased'>
-      <head>
+    <html lang='ru' className='h-full'>
+      <body className='min-h-full flex flex-col'>
         <script
-          type="application/ld+json"
+          type='application/ld+json'
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebSite',
-              name: 'BUDHOUSE', // или BUDHOUSE, как хотите видеть в поиске
-              url: baseUrl,
-            }),
+            __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
           }}
         />
-      </head>
-      <body className='min-h-full flex flex-col' style={{ margin: 0, padding: 0, background: '#0a0a0f' }}>
         {children}
       </body>
     </html>

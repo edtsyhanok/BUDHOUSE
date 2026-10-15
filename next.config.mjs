@@ -12,6 +12,10 @@ const nextConfig = {
 
   // Отключаем плашку разработки
   devIndicators: false,
-};
 
+  experimental: {
+    inlineCss: true,
+  },
+};
 export default nextConfig;
+
